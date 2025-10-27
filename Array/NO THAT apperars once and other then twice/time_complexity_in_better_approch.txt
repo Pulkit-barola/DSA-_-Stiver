@@ -1,0 +1,28 @@
+✅ 1️⃣ unordered_map version
+🔑 Kya hota hai?
+Har number ki frequency count karne mein:
+➜ unordered_map insert/search: O(1) average
+➜ Total for n elements: O(n)
+
+Fir singles nikaalne mein:
+➜ unordered_map ke sab keys par loop → O(n)
+
+Result store karna in vector or unordered_set:
+➜ O(1) insertion per element → total O(n)
+
+✅ Total Time Complexity: O(n) (average case)
+Space Complexity is O(n)
+✅ 2️⃣ map version
+🔑 Kya hota hai?
+Har number ki frequency count karne mein:
+➜ map uses Balanced BST (Red-Black Tree) → insert/search: O(log n)
+➜ Total for n elements: O(n log n)
+
+Fir singles nikaalne mein:
+➜ map ke sab keys par loop → O(n)
+
+Result store karna in set:
+➜ set bhi Balanced BST hai → insert: O(log n) per insert
+
+✅ Total Time Complexity: O(n log n)
+Space Complexity is O(n)

@@ -1,0 +1,100 @@
+Perfect, let’s break this code step by step 👇
+(mai **array version** ka code explain kar raha hoon jo aap use karna chahte ho)
+
+---
+
+### Code Recap
+
+cpp
+int* lb = lower_bound(arr, arr + n, x);
+
+if (lb == arr + n || *lb != x) {
+    return {-1, -1}; // element not found
+}
+
+int first = lb - arr;
+
+int* ub = upper_bound(arr, arr + n, x);
+int last = ub - arr - 1;
+
+return {first, last};
+```
+
+---
+
+### Step by Step Explanation
+
+#### 🔹 1. `lower_bound(arr, arr+n, x)`
+
+* Ye function **binary search** lagata hai.
+* Return karega ek **pointer (int*)*\* jo `x` ya usse bada pehle element pe point karega.
+* Agar `x` exist karta hai toh ye **first occurrence of x** pe point karega.
+* Agar `x` nahi mila toh ye `arr+n` (end of array) return karega.
+
+👉 Example:
+`arr = {1,2,2,2,3,4,5}, n=7, x=2`
+`lower_bound` → pointer to `arr[1]` (first 2).
+
+---
+
+#### 🔹 2. `if (lb == arr+n || *lb != x)`
+
+* `lb == arr+n` → matlab array me koi element ≥ x nahi mila.
+* `*lb != x` → matlab mila toh hai par wo `x` nahi hai (ex: x=6, array= {1,2,3,4,5}).
+
+Dono cases me return `{-1,-1}` (not found).
+
+---
+
+#### 🔹 3. `int first = lb - arr;`
+
+* Pointer subtraction → index nikalta hai.
+* Agar `lb = arr+1`, then `lb - arr = 1`.
+* Matlab **first occurrence ka index** mil gaya.
+
+👉 Example:
+`lb` points to `arr[1]` → so first = 1.
+
+---
+
+#### 🔹 4. `upper_bound(arr, arr+n, x)`
+
+* Ye function return karega **first element > x** ka pointer.
+* Agar x=2 hai, array `{1,2,2,2,3,4}`,
+
+  * toh ye `arr[4]` pe point karega (kyunki `arr[4]=3` which is >2).
+
+---
+
+#### 🔹 5. `int last = ub - arr - 1;`
+
+* `ub - arr` → index of element > x.
+* `-1` karne se milta hai **last occurrence of x**.
+
+👉 Example:
+`ub` points to `arr[4]` → `ub - arr = 4` → last = 3.
+
+---
+
+### 🔹 Final Result
+
+* First occurrence = `1`
+* Last occurrence = `3`
+
+Output:
+
+```
+First occurrence: 1, Last occurrence: 3
+```
+
+---
+
+⚡ So overall:
+
+* `lower_bound` → first occurrence
+* `upper_bound - 1` → last occurrence
+* Space = O(1), Time = O(log n)
+
+---
+
+Kya aap chahte ho mai iska **dry run diagram banau (array + pointers)** jisme arrows se dikhau ki `lb` aur `ub` kaha point kar rahe hain?
