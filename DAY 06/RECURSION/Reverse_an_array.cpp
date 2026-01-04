@@ -30,7 +30,7 @@ void Reverseanarray(int arr[] , int start , int end){
     if(start>=end){
         return;
     }
-    swap(arr[start], arr[end]);
+     swap(arr[start], arr[end]);
     Reverseanarray(arr,start+1,end-1);
 }
 
@@ -48,28 +48,28 @@ int main(){
 
 // with one poitr
 
-#include <bits/stdc++.h>
-using namespace std;
+// #include <bits/stdc++.h>
+// using namespace std;
 
-void Reverseanarray(int arr[], int i, int size) {
-    if (i >= size / 2) { // Base case: Stop when reaching the middle
-        return;
-    }
+// void Reverseanarray(int arr[], int i, int size) {
+//     if (i >= size / 2) { // Base case: Stop when reaching the middle
+//         return;
+//     }
 
-    swap(arr[i], arr[size - i - 1]); // Swap elements from start and end
-    Reverseanarray(arr, i + 1, size); // Move the pointer forward
-}
+//     swap(arr[i], arr[size - i - 1]); // Swap elements from start and end
+//     Reverseanarray(arr, i + 1, size); // Move the pointer forward
+// }
 
-int main() {
-    int arr[] = {78, 97, 12, 9, 45};
-    int size = sizeof(arr) / sizeof(arr[0]);
+// int main() {
+//     int arr[] = {78, 97, 12, 9, 45};
+//     int size = sizeof(arr) / sizeof(arr[0]);
 
-    Reverseanarray(arr, 0, size); // Start recursion with one pointer
+//     Reverseanarray(arr, 0, size); // Start recursion with one pointer
 
-    // Print the reversed array
-    for (int i = 0; i < size; i++) {
-        cout << arr[i] << " ";
-    }
+//     // Print the reversed array
+//     for (int i = 0; i < size; i++) {
+//         cout << arr[i] << " ";
+//     }
     
-    return 0;
-}
+//     return 0;
+// }
